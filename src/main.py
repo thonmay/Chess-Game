@@ -12,13 +12,18 @@ class Main:
         self.screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
         pygame.display.set_caption("Chess Game")
         self.game = Game()
-        # self.clock = pygame.time.Clock()
+        
         
     
     def gameloop(self):
         """Main game loop"""
+        game = self.game
+        screen = self.screen
+        
         while True:
-            self.game.show_board(self.screen)
+            game.show_board(screen)
+            game.show_pieces(screen)
+            
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     pygame.quit()
